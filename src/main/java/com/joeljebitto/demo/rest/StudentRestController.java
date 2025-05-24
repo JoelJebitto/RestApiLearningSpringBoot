@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,5 +31,11 @@ public class StudentRestController {
   public List<Student> getStudents() {
 
     return theStudents;
+  }
+
+  @GetMapping("/students/{studentId}")
+  public Student getStudent(@PathVariable int studentId) {
+
+    return theStudents.get(studentId);
   }
 }
